@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "npm run coverage",
-    "coverage": "istanbul cover --dir reports/coverage tests/**/*.js"
+    "coverage": "istanbul cover --dir reports/coverage tests/lib/rules/non-injected-prop-types.js"
   },
   "repository": {
     "type": "git",
@@ -30,7 +30,12 @@
     "eslint-plugin-react": "^7.9.1"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "eslint": "^4.19.1",
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0"
+  },
+  "peerDependencies": {
+    "eslint": "^3.0.0 || ^4.0.0"
   }
 }
