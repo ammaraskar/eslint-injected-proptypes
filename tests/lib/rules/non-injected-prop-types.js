@@ -36,34 +36,44 @@ const ruleTester = new RuleTester({parserOptions});
 ruleTester.run("non-injected-prop-types", rule, {
     valid: [
         {
-            code: [
-                'var Hello = createReactClass({',
-                '  propTypes: {',
-                '    name: PropTypes.string.isRequired',
-                '  },',
-                '  render: function() {',
-                '    return <div>Hello {this.props.name}</div>;',
-                '  }',
-                '});'
-            ].join('\n')
+            code: `
+                var Hello = createReactClass({
+                    propTypes: {
+                        name: PropTypes.string.isRequired
+                    },
+                    render: function() {
+                        return <div>Hello {this.props.name}</div>;
+                    }
+                });
+            `
         },
         {
-            code: [
-                'const Foo = ({providedProp, injectedProp}) =>',
-                '   (<span>',
-                '       {providedProp}',
-                '       {injectedProp}',
-                '   </span>);',
-                '',
-                'Foo.propTypes = {',
-                '   providedProp: PropTypes.string.isRequired',
-                '}',
-                '',
-                'const mapStateToProps = (state) => ({',
-                '   injectedProp: "123"',
-                '});',
-                'export default connect(mapStateToProps)(Foo);'
-            ].join('\n')
+            code: `
+                const Foo = ({providedProp, injectedProp}) =>
+                    (<span>
+                        {providedProp}
+                        {injectedProp}
+                    </span>);
+                Foo.propTypes = {
+                    providedProp: PropTypes.string.isRequired
+                };
+                const mapStateToProps = (state) => ({
+                    injectedProp: "123"
+                });
+                export default connect(mapStateToProps)(Foo);
+            `
+        },
+        {
+            code: `
+                const Foo = (props) => {
+                    const stuff = props.dispatchX();
+                    return (<h1>{stuff} {props.injectedProp}</h1>);
+                };
+                function mapStateToProps({ foo }) {
+                    return {injectedProp: foo}
+                }
+                export default connect(mapStateToProps, { dispatchX })(Foo);
+            `
         }
     ],
 
