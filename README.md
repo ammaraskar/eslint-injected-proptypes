@@ -1,3 +1,6 @@
+[![Travis Build State](https://travis-ci.org/ammaraskar/eslint-injected-proptypes.svg?branch=master)](https://travis-ci.org/ammaraskar/eslint-injected-proptypes)
+[![codecov](https://codecov.io/gh/ammaraskar/eslint-injected-proptypes/branch/master/graph/badge.svg)](https://codecov.io/gh/ammaraskar/eslint-injected-proptypes)
+
 # Prevent missing propTypes in React components (non-injected-prop-types)
 
 This rule ensures that all your React components have propTypes set for all of their used properties.

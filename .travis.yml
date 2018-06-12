@@ -3,5 +3,8 @@ node_js:
   - "node"
 sudo: false
 
+notifications:
+  email: false
+
 after_success:
   - ./node_modules/.bin/codecov
