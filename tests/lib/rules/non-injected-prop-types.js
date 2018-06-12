@@ -46,6 +46,24 @@ ruleTester.run("non-injected-prop-types", rule, {
                 '  }',
                 '});'
             ].join('\n')
+        },
+        {
+            code: [
+                'const Foo = ({providedProp, injectedProp}) =>',
+                '   (<span>',
+                '       {providedProp}',
+                '       {injectedProp}',
+                '   </span>);',
+                '',
+                'Foo.propTypes = {',
+                '   providedProp: PropTypes.string.isRequired',
+                '}',
+                '',
+                'const mapStateToProps = (state) => ({',
+                '   injectedProp: "123"',
+                '});',
+                'export default connect(mapStateToProps)(Foo);'
+            ].join('\n')
         }
     ],
 

@@ -24,19 +24,19 @@ Examples of **correct** code for this rule:
 ```js
 const Foo = ({providedProp, injectedProp}) =>
     (<span>
-        {providedProp} 
+        {providedProp}
         {injectedProp}
-    </span>)
+    </span>);
 
 const mapStateToProps = state => ({
     injectedProp: state.fooBar
-})
+});
 
 Foo.propTypes = {
     providedProp: PropTypes.string.isRequired
-}
+};
 
-export default connect(mapStateToProps)(Foo)
+export default connect(mapStateToProps)(Foo);
 ```
 
 ### Options
