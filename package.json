@@ -1,0 +1,36 @@
+{
+  "name": "eslint-injected-proptypes",
+  "version": "0.0.1",
+  "description": "React proptypes rule for ESLint ignoring injected properties",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "npm run coverage",
+    "coverage": "istanbul cover --dir reports/coverage tests/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ammaraskar/eslint-injected-proptypes.git"
+  },
+  "keywords": [
+    "eslint",
+    "react",
+    "proptypes"
+  ],
+  "author": "Ammar Askar <ammar@ammaraskar.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ammaraskar/eslint-injected-proptypes/issues"
+  },
+  "homepage": "https://github.com/ammaraskar/eslint-injected-proptypes#readme",
+  "dependencies": {
+    "eslint-plugin-react": "^7.9.1"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.5",
+    "mocha": "^5.2.0"
+  }
+}

@@ -1,4 +1,4 @@
-# Prevent missing propTypes in React components (without injected false positives) (non-injected-prop-types)
+# Prevent missing propTypes in React components (non-injected-prop-types)
 
 This rule ensures that all your React components have propTypes set for all of their used properties.
 However, it ignores common injected properties such as those introduced by Redux's `mapDispatchToProps` and
