@@ -8,30 +8,48 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var rule = require("../../../lib/rules/non-injected-prop-types"),
+const rule = require('../../../lib/rules/non-injected-prop-types');
+const RuleTester = require('eslint').RuleTester;
 
-    RuleTester = require("eslint").RuleTester;
+const parserOptions = {
+  ecmaVersion: 2018,
+  sourceType: 'module',
+  ecmaFeatures: {
+    jsx: true
+  }
+};
+
+const settings = {
+  react: {
+    pragma: 'Foo'
+  }
+};
+
+require('babel-eslint');
 
 
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
 
-var ruleTester = new RuleTester();
+const ruleTester = new RuleTester({parserOptions});
 ruleTester.run("non-injected-prop-types", rule, {
-
     valid: [
-
-        // give me some code that won't trigger a warning
+        {
+            code: [
+                'var Hello = createReactClass({',
+                '  propTypes: {',
+                '    name: PropTypes.string.isRequired',
+                '  },',
+                '  render: function() {',
+                '    return <div>Hello {this.props.name}</div>;',
+                '  }',
+                '});'
+            ].join('\n')
+        }
     ],
 
     invalid: [
-        {
-            code: "const Foo = ({propMissingType}) => (<span>{propMissingType}</span>);",
-            errors: [{
-                message: "Fill me in.",
-                type: "Me too"
-            }]
-        }
+
     ]
 });
