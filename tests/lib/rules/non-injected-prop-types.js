@@ -92,6 +92,18 @@ ruleTester.run("non-injected-prop-types", rule, {
                     );
                 export default connect(makeMapStateToProps, mapDispatchToProps)(Hello);
             `
+        },
+        {
+            code: `
+                const Foo = ({injectedProp}) =>
+                    (<span>
+                        {injectedProp}
+                    </span>);
+                const mapStateToProps = (state) => ({
+                    injectedProp: "123"
+                });
+                export default connect(mapStateToProps)(wrapper(wrapper2(Foo)));
+            `
         }
     ],
 
