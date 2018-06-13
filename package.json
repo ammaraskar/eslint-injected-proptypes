@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-injected-proptypes",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "React proptypes rule for ESLint ignoring injected properties",
   "main": "index.js",
   "directories": {
