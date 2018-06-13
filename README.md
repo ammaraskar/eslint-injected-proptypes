@@ -2,6 +2,15 @@
 [![codecov](https://codecov.io/gh/ammaraskar/eslint-injected-proptypes/branch/master/graph/badge.svg)](https://codecov.io/gh/ammaraskar/eslint-injected-proptypes)
 [![npm](https://img.shields.io/npm/v/eslint-plugin-injected-proptypes.svg)](https://www.npmjs.com/package/eslint-plugin-injected-proptypes)
 
+# Install
+
+1. Install the package:
+
+    `npm install --dev eslint-plugin-injected-proptypes`
+
+    `yarn add --dev eslint-plugin-injected-proptypes`
+
+2. Add `"plugins": ["injected-proptypes"]` to your eslint config file.
 
 # Prevent missing propTypes in React components (non-injected-prop-types)
 
