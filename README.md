@@ -1,5 +1,7 @@
 [![Travis Build State](https://travis-ci.org/ammaraskar/eslint-injected-proptypes.svg?branch=master)](https://travis-ci.org/ammaraskar/eslint-injected-proptypes)
 [![codecov](https://codecov.io/gh/ammaraskar/eslint-injected-proptypes/branch/master/graph/badge.svg)](https://codecov.io/gh/ammaraskar/eslint-injected-proptypes)
+[![npm](https://img.shields.io/npm/v/eslint-plugin-injected-proptypes.svg)](https://www.npmjs.com/package/eslint-plugin-injected-proptypes)
+
 
 # Prevent missing propTypes in React components (non-injected-prop-types)
 
