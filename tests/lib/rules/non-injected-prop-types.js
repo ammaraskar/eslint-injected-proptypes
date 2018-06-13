@@ -74,10 +74,38 @@ ruleTester.run("non-injected-prop-types", rule, {
                 }
                 export default connect(mapStateToProps, { dispatchX })(Foo);
             `
+        },
+        {
+            code: `
+                class Hello extends React.Component {
+                    render() {
+                        const prod = this.props.fetchProduct('car');
+                        return <span>{prod}</span>;
+                    }
+                }
+                const mapDispatchToProps = (dispatch, { lineItemId }) =>
+                    bindActionCreators(
+                        {
+                            fetchProduct: (_) => 'Toyota'
+                        },
+                        dispatch
+                    );
+                export default connect(makeMapStateToProps, mapDispatchToProps)(Hello);
+            `
         }
     ],
 
     invalid: [
-
+        {
+            code: `
+                const Foo = (props) => {
+                    return <span>{props.name}</span>
+                };
+            `,
+            options: [{skipUndeclared: false}],
+            errors: [{
+                message: `'name' is missing in props validation`
+            }]
+        }
     ]
 });
